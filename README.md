@@ -16,7 +16,7 @@
 ### Getting Started
 
 ```shell
-pip install superagentx superagentx-handlers
+pip install superagentx-examples
 ```
 ##### Usage - Example SuperAgentX Code
 This SuperAgentX example utilizes two handlers, Amazon and Walmart, to search for product items based on user input from the IO Console.
