@@ -1,4 +1,17 @@
-# superagentx-examples
+<div align="center">
+
+<img src="https://github.com/superagentxai/superagentX/blob/master/docs/images/fulllogo_transparent.png?raw=True" width="350">
+
+
+<br/>
+
+
+**Superagentx-Examples**
+
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/release/python-3100/)
+[![GitHub Repo stars](https://img.shields.io/github/stars/superagentxai/superagentX-examples)](https://github.com/superagentxai/superagentX-examples)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/superagentxai/superagentX-examples/blob/master/LICENSE)
+</div>
 
 ### Getting Started
 
@@ -108,4 +121,4 @@ if __name__ == '__main__':
 ##### Usage - Example SuperAgentX Result
 SuperAgentX searches for product items requested by the user in the console, validates them against the set goal, and returns the result. It retains the context, allowing it to respond to the user's next prompt in the IO Console intelligently. 
 
-![Output](https://github.com/decisionfacts/superagentX/blob/master/docs/images/examples/ecom-output-console.png?raw=True)
+![Output](https://github.com/superagentxai/superagentX/blob/master/docs/images/examples/ecom-output-console.png?raw=True)

@@ -4727,13 +4727,13 @@ full = ["httpx (>=0.22.0)", "itsdangerous", "jinja2", "python-multipart (>=0.0.7
 
 [[package]]
 name = "superagentx"
-version = "0.1.3"
+version = "0.1.5"
 description = "The Ultimate Modular Autonomous Multi AI Agent Framework."
 optional = false
 python-versions = "<=3.13,>=3.10"
 files = [
-    {file = "superagentx-0.1.3-py3-none-any.whl", hash = "sha256:937f6edb957ab52d5352cf055b7458f60ac2178e57ed3dfd185feb10a333c5c9"},
-    {file = "superagentx-0.1.3.tar.gz", hash = "sha256:242855df1758f4df8c75879cd23c017f022461b2589f55d53df5cc7e3c654915"},
+    {file = "superagentx-0.1.5-py3-none-any.whl", hash = "sha256:8f17ce2c33303eefac54d09b438b5fc0b4b79e21956a2432ca5c0da470e8d4c4"},
+    {file = "superagentx-0.1.5.tar.gz", hash = "sha256:bdd35a9364cd5ec4d8ff0e29b49f0ba233d560ecd74db5cc4cceae8711e1c634"},
 ]
 
 [package.dependencies]
@@ -4757,40 +4757,35 @@ name = "superagentx-handlers"
 version = "0.1.0"
 description = ""
 optional = false
-python-versions = ">=3.10,<=3.13"
-files = []
-develop = false
+python-versions = "<=3.13,>=3.10"
+files = [
+    {file = "superagentx_handlers-0.1.0-py3-none-any.whl", hash = "sha256:7151c1762cb3d097b370fc686888806604cb9569c0d5fbadc0e9ea70cb7cd674"},
+    {file = "superagentx_handlers-0.1.0.tar.gz", hash = "sha256:abf89d6058171dfbe276d9d320b834a028ced14f9defec1989206e4f3206ef98"},
+]
 
 [package.dependencies]
-aiohttp = "^3.10.10"
-aiomysql = "^0.2.0"
-aioodbc = "^0.5.0"
-asyncpg = "^0.30.0"
-atlassian-python-api = "^3.41.16"
-crawl4ai = "^0.3.71"
-geopy = "^2.4.1"
-google-api-python-client = "^2.149.0"
-google-auth-oauthlib = "^1.2.1"
-hubspot-api-client = "^10.0.0"
-jira = "^3.8.0"
-openai = "^1.52.0"
-openmeteo-requests = "^1.3.0"
-oracledb = "^2.4.1"
-pandas = "^2.2.3"
-psycopg2-binary = "^2.9.10"
-pymssql = "^2.3.1"
-requests-cache = "^1.2.1"
-retry-requests = "^2.0.0"
-sqlalchemy = {version = "^2.0.36", extras = ["asyncio"]}
-superagentx = "^0.1.3"
-timezonefinder = "^6.5.3"
-wikipedia-api = "^0.7.1"
-
-[package.source]
-type = "git"
-url = "git@github.com:decisionfacts/superagentX-handlers.git"
-reference = "v0.1.0"
-resolved_reference = "332ec30085ceea118cd95921e04a1edd3f8edbee"
+aiohttp = ">=3.10.10,<4.0.0"
+aiomysql = ">=0.2.0,<0.3.0"
+aioodbc = ">=0.5.0,<0.6.0"
+asyncpg = ">=0.30.0,<0.31.0"
+atlassian-python-api = ">=3.41.16,<4.0.0"
+crawl4ai = ">=0.3.71,<0.4.0"
+geopy = ">=2.4.1,<3.0.0"
+google-api-python-client = ">=2.149.0,<3.0.0"
+google-auth-oauthlib = ">=1.2.1,<2.0.0"
+hubspot-api-client = ">=10.0.0,<11.0.0"
+jira = ">=3.8.0,<4.0.0"
+openai = ">=1.52.0,<2.0.0"
+openmeteo-requests = ">=1.3.0,<2.0.0"
+oracledb = ">=2.4.1,<3.0.0"
+pandas = ">=2.2.3,<3.0.0"
+psycopg2-binary = ">=2.9.10,<3.0.0"
+pymssql = ">=2.3.1,<3.0.0"
+requests-cache = ">=1.2.1,<2.0.0"
+retry-requests = ">=2.0.0,<3.0.0"
+sqlalchemy = {version = ">=2.0.36,<3.0.0", extras = ["asyncio"]}
+timezonefinder = ">=6.5.3,<7.0.0"
+wikipedia-api = ">=0.7.1,<0.8.0"
 
 [[package]]
 name = "sympy"
@@ -5649,4 +5644,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10,<=3.13"
-content-hash = "4faa421f453de212ed9e97ef676b0c7d2ab4c1adc67daee7682f9df2d0e90361"
+content-hash = "38f17dd668a1935e6427de6d8c46f80b3c78391aa1836f8074888c3134fd57e5"
