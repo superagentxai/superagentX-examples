@@ -1,45 +1,15 @@
-# superagentx-examples
-
-### Getting Started
-
-```shell
-pip install superagentx superagentx-handlers
-```
-##### Usage - Example SuperAgentX Code
-This SuperAgentX example utilizes two handlers, Amazon and Walmart, to search for product items based on user input from the IO Console.
-
-1. It uses Parallel execution of handler in the agent 
-2. Memory Context Enabled
-3. LLM configured to OpenAI
-4. Pre-requisites
-
-Set OpenAI Key:  
-```shell
-export OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxxx
-```
-
-Set Rapid API Key <a href="https://rapidapi.com/auth/sign-up" target="_blank">Free Subscription</a> for Amazon, Walmart Search APIs
-```shell
-export RAPID_API_KEY=XXXXXXXXXXXXXXXXXXXXXXXXX
-```
-
-```python 
-# Additional lib needs to install
-# python3 superagentx_examples/ecom_iopipe.py
-
 import asyncio
 
 from rich import print as rprint
 from superagentx.agent import Agent
-from superagentx.agentxpipe import AgentXPipe
 from superagentx.engine import Engine
+from superagentx.agentxpipe import AgentXPipe
+from superagentx_handlers.ecommerce.amazon import AmazonHandler
+from superagentx_handlers.ecommerce.walmart import WalmartHandler
 from superagentx.llm import LLMClient
 from superagentx.memory import Memory
 from superagentx.pipeimpl.iopipe import IOPipe
 from superagentx.prompt import PromptTemplate
-
-from superagentx_handlers.ecommerce.amazon import AmazonHandler
-from superagentx_handlers.ecommerce.walmart import WalmartHandler
 
 
 async def main():
@@ -103,9 +73,3 @@ if __name__ == '__main__':
         asyncio.run(main())
     except (KeyboardInterrupt, asyncio.CancelledError):
         rprint("\nUser canceled the [bold yellow][i]pipe[/i]!")
-
-```
-##### Usage - Example SuperAgentX Result
-SuperAgentX searches for product items requested by the user in the console, validates them against the set goal, and returns the result. It retains the context, allowing it to respond to the user's next prompt in the IO Console intelligently. 
-
-![Output](https://github.com/decisionfacts/superagentX/blob/master/docs/images/examples/ecom-output-console.png?raw=True)
