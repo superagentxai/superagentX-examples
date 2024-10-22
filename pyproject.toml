@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "superagentx-examples"
+version = "0.1.0"
+description = ""
+authors = ["SuperAgentX AI <prabhu@decisionfacts.io>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.10,<=3.13"
+rich = "^13.9.2"
+websockets = "^13.1"
+superagentx = "^0.1.5"
+superagentx-handlers = "^0.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
