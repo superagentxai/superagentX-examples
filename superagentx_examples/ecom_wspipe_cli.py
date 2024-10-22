@@ -13,7 +13,7 @@ async def ecom_pipe_cli():
     """
 
     uri = "ws://localhost:8765"
-    rprint(f'[bold blue]{10*'-'}Superagentx Ecom Websocket Cli{10*'-'}')
+    rprint(f'[bold blue]{10*"-"}Superagentx Ecom Websocket Cli{10*"-"}')
 
     async with connect(uri) as websocket:
         while True:
