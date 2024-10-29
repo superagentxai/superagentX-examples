@@ -26,5 +26,12 @@ async def search(query: str) -> list[GoalResult]:
     return await ecom_pipe.flow(query_instruction=query)
 
 
-if __name__ == '__main__':
-    uvicorn.run('app', port=8000)
+"""
+# To Run This using, install `pip install 'fastapi[standard]'`
+
+# Development Mode
+fastapi dev superagentx_examples/ecom/ecom_fastapi.py
+
+# Server Mode
+fastapi run superagentx_examples/ecom/ecom_fastapi.py
+"""
