@@ -16,10 +16,13 @@ async def lifespan(app: FastAPI):
     pipes.clear()
 
 
-app = FastAPI(lifespan=lifespan)
+ecom_app = FastAPI(
+    title='Ecom Search',
+    lifespan=lifespan
+)
 
 
-@app.get('/search')
+@ecom_app.get('/search')
 async def search(query: str) -> list[GoalResult]:
     ecom_pipe: AgentXPipe = pipes.get('ecom_pipe')
     return await ecom_pipe.flow(query_instruction=query)
