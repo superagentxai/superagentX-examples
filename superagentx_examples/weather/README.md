@@ -47,12 +47,24 @@ llm_client: LLMClient = LLMClient(llm_config=llm_config)
 
 ```shell
 git clone git@github.com:superagentxai/superagentX-examples.git
+```
+
+```shell
 cd superagentX-examples/superagentx_examples
+```
+```shell
 python -m venv .venv
+```
+```shell
 source .venv/bin/activate
+```
+```shell
 pip install poetry
+```
+```shell
 poetry install
 ```
+
 
 Note: 
 
