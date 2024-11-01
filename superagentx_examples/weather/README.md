@@ -8,7 +8,7 @@ This project is an example using the SuperAgentX framework to get real-time weat
 ### Weather Teller - Multi Agent with Sequential Mode.
 
 The Below example explains how to invoke Bedrock Converse API using the SuperAgentX framework.
-In this example, the SuperAgentX Agent module can automatically invoke a mock weather handler (Tool). This function can be fully operational by integrating any weather service API. 
+In this example, the SuperAgentX Agent module can automatically invoke weather handler (Tool). This function can be fully operational by integrating any weather service API. 
 Later in the example, we connect to the Open-Meteo API.
 
 1. Agent 1 (`lat_and_long_agent`) : Get Latitude & Longitude for the given place / city.
