@@ -1,25 +1,19 @@
-import asyncio
-
-from rich import print as rprint
 from superagentx.agent import Agent
-from superagentx.engine import Engine
 from superagentx.agentxpipe import AgentXPipe
-from superagentx_handlers.ecommerce.amazon import AmazonHandler
-from superagentx_handlers.ecommerce.walmart import WalmartHandler
+from superagentx.engine import Engine
 from superagentx.llm import LLMClient
 from superagentx.memory import Memory
-from superagentx.pipeimpl.iopipe import IOPipe
 from superagentx.prompt import PromptTemplate
+from superagentx_handlers import AmazonHandler
+from superagentx_handlers.ecommerce.walmart import WalmartHandler
 
 
-async def main():
-    """
-    Launches the e-commerce pipeline console client for processing requests and handling data.
-    """
-
+async def get_ecom_pipe() -> AgentXPipe:
     # LLM Configuration
-    llm_config = {'llm_type': 'openai'}
-    llm_client: LLMClient = LLMClient(llm_config=llm_config)
+    llm_config = {
+        'llm_type': 'openai'
+    }
+    llm_client = LLMClient(llm_config=llm_config)
 
     # Enable Memory
     memory = Memory()
@@ -58,18 +52,4 @@ async def main():
         agents=[ecom_agent],
         memory=memory
     )
-
-    # Create IO Cli Console - Interface
-    io_pipe = IOPipe(
-        search_name='SuperAgentX Ecom',
-        agentx_pipe=pipe,
-        read_prompt=f"\n[bold green]Enter your search here"
-    )
-    await io_pipe.start()
-
-
-if __name__ == '__main__':
-    try:
-        asyncio.run(main())
-    except (KeyboardInterrupt, asyncio.CancelledError):
-        rprint("\nUser canceled the [bold yellow][i]pipe[/i]!")
+    return pipe
