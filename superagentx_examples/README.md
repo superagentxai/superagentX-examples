@@ -53,7 +53,7 @@ Set Rapid API Key <a href="https://rapidapi.com/auth/sign-up" target="_blank">Fr
 export RAPID_API_KEY= xxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
-# ECOM IOPIPE :
+# ECOM IOPIPE
 ``` python
 import asyncio
 
@@ -93,7 +93,7 @@ python3 superagentx_examples/ecom/ecom_iopipe.py
 ```
 
 
-# ECOM WSPIPE CLI :
+# ECOM WSPIPE CLI 
 The ecom_wspipe_cli component is a WebSocket client that connects to the e-commerce server to handle real-time search requests. It’s perfect for users wanting a live, interactive way to query the e-commerce pipeline.
 
 
@@ -134,7 +134,7 @@ if __name__ == "__main__":
 python3 superagentx_examples/ecom/ecom_wspipe_cli.py
 ```
 
-# ECOM WSPIPE :
+# ECOM WSPIPE
 The ecom_wspipe component is a WebSocket server that powers real-time interaction between users and the e-commerce pipeline. 
 
 Set Rapid API Key <a href="https://rapidapi.com/auth/sign-up" target="_blank">Free Subscription</a> for Amazon, Walmart Search APIs
