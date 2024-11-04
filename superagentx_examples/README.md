@@ -135,13 +135,10 @@ python3 superagentx_examples/ecom/ecom_wspipe_cli.py
 ```
 
 # ECOM WSPIPE
-The ecom_wspipe component is a WebSocket server that powers real-time interaction between users and the e-commerce pipeline. 
 
-Set Rapid API Key <a href="https://rapidapi.com/auth/sign-up" target="_blank">Free Subscription</a> for Amazon, Walmart Search APIs
+### Example Usage
+To launch the WebSocket PIPE, follow these steps:
 
-```shell
-export RAPID_API_KEY= xxxxxxxxxxxxxxxxxxxxxxxx
-```
 
 ```python
 import asyncio
@@ -213,7 +210,7 @@ if __name__ =='__main__':
 python3 superagentx_examples/ecom/wspipe.py
 ```
 
-# ECOM FASTAPI :
+# ECOM FASTAPI 
 The ecom_fastapi module creates a RESTful API service that provides a search endpoint to interact with the e-commerce pipeline. This API makes it easy to send search queries programmatically and receive e-commerce data in a structured JSON format.
 
 ### EXAMPLE USAGE :
