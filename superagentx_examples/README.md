@@ -219,12 +219,12 @@ async def search(query: str) -> list[GoalResult]:
 
 ```
 
-### Run in Development Mode :
+### To Run in Development Mode :
 ```
 fastapi dev superagentx_examples/ecom/ecom_fastapi.py
 ```
 
-### Run in Server Mode :
+### To Run in Server Mode :
 ```
 fastapi run superagentx_examples/ecom/ecom_fastapi.py
 ```
