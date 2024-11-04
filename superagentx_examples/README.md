@@ -92,6 +92,40 @@ if __name__ == '__main__':
 python3 superagentx_examples/ecom/ecom_iopipe.py
 ```
 
+# ECOM WSPIPE
+
+### Example Usage
+To launch the WebSocket PIPE, follow these steps:
+
+
+``` python 
+import asyncio
+
+from rich import print as rprint
+from superagentx.pipeimpl.wspipe import WSPipe
+
+from superagentx_examples.ecom.pipe import get_ecom_pipe
+
+
+async def main():
+    """
+    Launches the e-commerce pipeline websocket server for processing requests and handling data.
+    """
+    pipe = await get_ecom_pipe()
+    ws_pipe = WSPipe(
+        search_name='SuperAgentX Ecom Websocket Server',
+        agentx_pipe=pipe
+    )
+    await ws_pipe.start()
+
+
+if __name__ =='__main__':
+    try:
+        asyncio.run(main())
+    except (KeyboardInterrupt, asyncio.CancelledError):
+        rprint("\nUser canceled the [bold yellow][i]pipe[/i]!")
+
+```
 
 # ECOM WSPIPE CLI 
 The ecom_wspipe_cli component is a WebSocket client that connects to the e-commerce server to handle real-time search requests. It’s perfect for users wanting a live, interactive way to query the e-commerce pipeline.
@@ -129,86 +163,19 @@ async def ecom_pipe_cli():
 if __name__ == "__main__":
     asyncio.run(ecom_pipe_cli())
 ```
-### To Run wspipe cli :
+
+
+
+### To run through websocket :
+Step 1 : To start SuperagentX websocket server
+```shell
+python3 superagentx_examples/ecom/wspipe.py
+```
+Step 2 : To run SuperagentX Ecom Websocket cli
 ```shell
 python3 superagentx_examples/ecom/ecom_wspipe_cli.py
 ```
 
-# ECOM WSPIPE
-
-### Example Usage
-To launch the WebSocket PIPE, follow these steps:
-
-
-```python
-import asyncio
-import os
-
-from rich import print as rprint
-from superagentx.agent import Agent
-from superagentx.agentxpipe import AgentXPipe
-from superagentx.engine import Engine
-from superagentx.llm import LLMClient
-from superagentx.pipeimpl.wspipe import WSPipe
-from superagentx.prompt import PromptTemplate
-from superagentx_handlers.ecommerce.amazon import AmazonHandler
-from superagentx_handlers.ecommerce.flipkart import FlipkartHandler
-
-
-async def main():
-    """
-    Launches the e-commerce pipeline websocket server for processing requests and handling data.
-    """
-    llm_config = {'model': 'gpt-4-turbo-2024-04-09', 'llm_type': 'openai'}
-
-    llm_client: LLMClient = LLMClient(llm_config=llm_config)
-    amazon_ecom_handler = AmazonHandler(
-        api_key=os.getenv('RAPID_API_KEY'),
-        country="IN"
-    )
-    flipkart_ecom_handler = FlipkartHandler(
-        api_key=os.getenv('RAPID_API_KEY'),
-    )
-    prompt_template = PromptTemplate()
-    amazon_engine = Engine(
-        handler=amazon_ecom_handler,
-        llm=llm_client,
-        prompt_template=prompt_template
-    )
-    flipkart_engine = Engine(
-        handler=flipkart_ecom_handler,
-        llm=llm_client,
-        prompt_template=prompt_template
-    )
-    ecom_agent = Agent(
-        name='Ecom Agent',
-        goal="Get me the best search results",
-        role="You are the best product searcher",
-        llm=llm_client,
-        prompt_template=prompt_template,
-        engines=[[amazon_engine, flipkart_engine]]
-    )
-    pipe = AgentXPipe(
-        agents=[ecom_agent]
-    )
-    ws_pipe = WSPipe(
-        search_name='SuperAgentX Ecom Websocket Server',
-        agentx_pipe=pipe
-    )
-    await ws_pipe.start()
-
-
-if __name__ =='__main__':
-    try:
-        asyncio.run(main())
-    except (KeyboardInterrupt, asyncio.CancelledError):
-        rprint("\nUser canceled the [bold yellow][i]pipe[/i]!")     
-```
-
-### To Run WSPIPE :
-```shell
-python3 superagentx_examples/ecom/wspipe.py
-```
 
 # ECOM FASTAPI 
 The ecom_fastapi module creates a RESTful API service that provides a search endpoint to interact with the e-commerce pipeline. This API makes it easy to send search queries programmatically and receive e-commerce data in a structured JSON format.
@@ -217,7 +184,7 @@ The ecom_fastapi module creates a RESTful API service that provides a search end
 To launch the FastAPI service, follow these steps:
 
 ### Install FastAPI and its dependencies
-```
+```shell
 pip install 'fastapi[standard]'
 ```
 ```python
