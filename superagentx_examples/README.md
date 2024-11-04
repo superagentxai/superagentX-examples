@@ -13,10 +13,47 @@
 </div>
 
 ### OVERVIEW :
-The Superagentx-Ecom-Examples repository provides a robust e-commerce pipeline designed to simplify interactions with multiple online marketplaces. This project utilizes Large Language Model (LLM) configurations to build and manage agents that can search, retrieve, and interact with e-commerce data sources such as Amazon and Walmart.
+The Superagentx-Examples repository is an e-commerce tool that streamlines interactions with major online marketplaces. It uses Large Language Models (LLMs) to create agents that can search, retrieve, and interact with e-commerce data from platforms like Amazon and Walmart.
+
+# Environment Setup
+```shell
+$ cd <path-to>/superagentX-examples
+$ python3.12 -m venv venv
+$ source venv/bin/activate
+(venv) $ pip install poetry
+(venv) $ poetry install
+```
 
 
-### ECOM IOPIPE :
+### Getting Started
+
+
+##### Usage - Example SuperAgentX Code
+This SuperAgentX-ecom-example utilizes two handlers, Amazon and Walmart, to search for product items based on user input from the IO Console.
+
+1. It uses Parallel execution of handler in the agent 
+2. Memory Context Enabled
+3. LLM configured to OpenAI
+4. Pre-requisites
+
+### Install SuperAgentX :
+```shell
+pip install superagentx superagentx-handlers
+```
+
+### Set OpenAI KEY :  
+```shell
+export OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxxx
+```
+
+### Set RAPIDAPI KEY :
+
+Set Rapid API Key <a href="https://rapidapi.com/auth/sign-up" target="_blank">Free Subscription</a> for Amazon, Walmart Search APIs
+```shell
+export RAPID_API_KEY= xxxxxxxxxxxxxxxxxxxxxxxx
+```
+
+# ECOM IOPIPE :
 ``` python
 import asyncio
 
@@ -50,9 +87,14 @@ if __name__ == '__main__':
 
 ```
 
+### To Run IO PIPE :
+```shell
+python3 superagentx_examples/ecom/ecom_iopipe.py
+```
 
-### ECOM WSPIPE CLI :
-The ecom_wspipe_cli component introduces a WebSocket client that connects directly to the e-commerce pipeline server to handle search requests in real time. This client interface is ideal for users who want a live, interactive experience while querying the e-commerce pipeline.
+
+# ECOM WSPIPE CLI :
+The ecom_wspipe_cli component is a WebSocket client that connects to the e-commerce server to handle real-time search requests. It’s perfect for users wanting a live, interactive way to query the e-commerce pipeline.
 
 
 ### Example Usage
@@ -87,10 +129,12 @@ async def ecom_pipe_cli():
 if __name__ == "__main__":
     asyncio.run(ecom_pipe_cli())
 ```
+### To Run wspipe cli :
+```shell
+python3 superagentx_examples/ecom/ecom_wspipe_cli.py
+```
 
-This example code demonstrates a streamlined search workflow where user input is sent to the server, and results are returned in real-time for a responsive and efficient e-commerce experience.
-
-### ECOM WSPIPE :
+# ECOM WSPIPE :
 The ecom_wspipe component is a WebSocket server that powers real-time interaction between users and the e-commerce pipeline. 
 
 Set Rapid API Key <a href="https://rapidapi.com/auth/sign-up" target="_blank">Free Subscription</a> for Amazon, Walmart Search APIs
@@ -164,31 +208,64 @@ if __name__ =='__main__':
         rprint("\nUser canceled the [bold yellow][i]pipe[/i]!")     
 ```
 
-### ECOM FASTAPI :
+### To Run WSPIPE :
+```shell
+python3 superagentx_examples/ecom/wspipe.py
+```
+
+# ECOM FASTAPI :
 The ecom_fastapi module creates a RESTful API service that provides a search endpoint to interact with the e-commerce pipeline. This API makes it easy to send search queries programmatically and receive e-commerce data in a structured JSON format.
 
 ### EXAMPLE USAGE :
 To launch the FastAPI service, follow these steps:
 
-# Install FastAPI and its dependencies
+### Install FastAPI and its dependencies
 ```
 pip install 'fastapi[standard]'
 ```
+```python
+from contextlib import asynccontextmanager
+
+from fastapi import FastAPI
+from superagentx.agentxpipe import AgentXPipe
+from superagentx.result import GoalResult
+
+from superagentx_examples.ecom.pipe import get_ecom_pipe
+
+pipes = {}
 
 
-# Run in Development Mode
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    pipes['ecom_pipe'] = await get_ecom_pipe()
+    yield
+    pipes.clear()
+
+
+ecom_app = FastAPI(
+    title='Ecom Search',
+    lifespan=lifespan
+)
+
+
+@ecom_app.get('/search')
+async def search(query: str) -> list[GoalResult]:
+    ecom_pipe: AgentXPipe = pipes.get('ecom_pipe')
+    return await ecom_pipe.flow(query_instruction=query)
+
+```
+
+### Run in Development Mode :
 ```
 fastapi dev superagentx_examples/ecom/ecom_fastapi.py
 ```
 
-# Run in Server Mode
+### Run in Server Mode :
 ```
 fastapi run superagentx_examples/ecom/ecom_fastapi.py
 ```
 
-##### Usage - Example SuperAgentX Result
-SuperAgentX searches for product items requested by the user in the console, validates them against the set goal, and returns the result. It retains the context, allowing it to respond to the user's next prompt in the IO Console intelligently. 
+##### Usage - Example SuperAgentX Ecom Result
+SuperAgentX Ecom searches for product items requested by the user in the console, validates them against the set goal, and returns the result. It retains the context, allowing it to respond to the user's next prompt in the IO Console intelligently. 
 
-### OUTPUT
-[GoalResult(reason='The Vivo X90 is the most affordable option among the smartphones listed, with a price of 22002.08, and adequate features that fulfill the need for a smartphone that combines a good balance of performance, photography capabilities, and battery life.', result={'id': '14bad2987c884eb49e871e38c5ebf1d8', 'title': 'Vivo X90', 'price': 22002.08, 'description': "The Vivo X90 is a cutting-edge smartphone that epitomizes both style and functionality. This model is designed to cater to tech enthusiasts seeking advanced photography capabilities, robust performance, and all-day battery life. Equipped with Vivo's latest imaging system, it offers unparalleled photo clarity and color accuracy, ideal for capturing those spectacular moments in utmost detail. The X90 runs on a powerful chipset that ensures smooth, lightning-fast responses for both daily tasks and intense gaming sessions. Coupled with a vibrant, high-resolution display, the Vivo X90 guarantees a truly immersive viewing experience. Whether it's for professional photography, high-speed gaming, or day-to-day efficiency, the Vivo X90 is engineered to exceed expectations in every aspect, making it the ultimate companion for the modern smartphone user.", 'category': 'Mobile Phone, smartphone', 'provider': 'Flipkart', 'image': 'https://fakeflipkartstoreapi.com/img/Vivo X90.jpg', 'rating': {'rate': 2.7, 'count': 186}}, is_goal_satisfied=True)]
-PASSED
+![Output](https://github.com/superagentxai/superagentX/blob/master/docs/images/examples/ecom-output-console.png?raw=True)
