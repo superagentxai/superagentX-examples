@@ -13,10 +13,10 @@
 </div>
 
 ### OVERVIEW :
-The Superagentx-Examples repository is an e-commerce tool that streamlines interactions with major online marketplaces. It uses Large Language Models (LLMs) to create agents that can search, retrieve, and interact with e-commerce data from platforms like Amazon and Walmart.
-
+The SuperagentX-Examples repository provides streamlines interactions with major online platforms. It uses Large Language Models (LLMs) to create agents that can search, retrieve , and also interact with e-commerce platforms like Amazon and Walmart.
 # Environment Setup
 ```shell
+$ git clone https://github.com/superagentxai/superagentx.git
 $ cd <path-to>/superagentX-examples
 $ python3.12 -m venv venv
 $ source venv/bin/activate
