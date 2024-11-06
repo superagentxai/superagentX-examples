@@ -5,7 +5,7 @@
 
 <br/>
 
-**Superagentx-Ecom-Examples**
+**Superagentx Examples**
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/release/python-3100/)
 [![GitHub Repo stars](https://img.shields.io/github/stars/superagentxai/superagentX-examples)](https://github.com/superagentxai/superagentX-examples)
@@ -87,7 +87,7 @@ if __name__ == '__main__':
 
 ```
 
-### To Run IO PIPE :
+### To Run IOPipe :
 ```shell
 python3 superagentx_examples/ecom/ecom_iopipe.py
 ```
