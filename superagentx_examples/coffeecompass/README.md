@@ -112,3 +112,12 @@ MIT License
 3. Commit changes
 4. Push to the branch
 5. Open a Pull Request
+
+## How to Example
+Run the below python command:
+```python
+python3.12 iopipe.py
+```
+
+   ![Alt text](path/to/your/image.png)
+
