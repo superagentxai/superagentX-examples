@@ -118,6 +118,7 @@ Run the below python command:
 ```python
 python3.12 iopipe.py
 ```
-
-   ![Alt text](path/to/your/image.png)
+## Screenshot 
+![CoffeeCompass Interface](CoffeeCompass.png)
+ 
 
