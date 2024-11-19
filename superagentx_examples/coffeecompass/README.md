@@ -1,11 +1,11 @@
-# coffeecompass - Use case using SuperAgentX
+# CoffeeCompass - Refreshing Use case for SuperAgentX
 
-SuperAgentX - A Lightweight Modular Autonomous True Multi Agent AI Framework.
+SuperAgentX - A Lightweight Modular Autonomous True Multi-Agent AI Framework.
 
 
 # CoffeeCompass
 
-CoffeeCompass is a versatile coffee shop discovery tool built with SuperagentX framework. Find nearby cafes with detailed information about amenities, opening hours, and features.
+CoffeeCompass is a versatile coffee shop discovery tool built with the SuperagentX framework. You can find nearby cafes with detailed information about amenities, opening hours, and features.
 
 ## Features
 
