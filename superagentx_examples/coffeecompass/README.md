@@ -47,9 +47,11 @@ cd coffeecompass
 python iopipe.py
 ```
 
+## Cafes 
+![Cafe Search Results](screens.png)
 
 ## Screenshot 
-![CoffeeCompass Interface](CoffeeCompass.png)
+![CoffeeCompass Interface](output_json.png)
 
 
 ### REST API Server
