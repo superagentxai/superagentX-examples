@@ -1,11 +1,11 @@
 from superagentx.agent import Agent
-from superagentx.engine import Engine
 from superagentx.agentxpipe import AgentXPipe
+from superagentx.engine import Engine
 from superagentx.handler import SerperDevToolHandler, AIHandler
-from superagentx_handlers import ScrapeHandler
 from superagentx.llm import LLMClient
 from superagentx.memory import Memory
 from superagentx.prompt import PromptTemplate
+from superagentx_handlers import ScrapeHandler
 
 output_prompt = """
 Change the output format from the context. Give me list of link
@@ -17,12 +17,17 @@ Don't include any other information.
 
 
 async def get_trip_planner_pipe():
-    llm_config = {'model': 'anthropic.claude-3-5-haiku-20241022-v1:0', 'llm_type': 'bedrock'}
+    llm_config = {
+        'model': 'anthropic.claude-3-5-haiku-20241022-v1:0',
+        'llm_type': 'bedrock'
+    }
     llm_client: LLMClient = LLMClient(llm_config=llm_config)
 
     prompt_template = PromptTemplate()
 
-    memory = Memory(memory_config={"llm_client": llm_client})
+    memory = Memory(
+        memory_config={"llm_client": llm_client}
+    )
 
     serper_handler = SerperDevToolHandler()
     scrape_handler = ScrapeHandler()
@@ -61,7 +66,8 @@ async def get_trip_planner_pipe():
 
     serper_agent = Agent(
         name="Serper Agent",
-        role=f'You are the website link extractor and generate the following format.\n\nFormat:\n{output_prompt}',
+        role=f'You are the website link extractor and generate the following format.\n\n'
+             f'Format:\n{output_prompt}',
         goal='Generate the list of website urls',
         llm=llm_client,
         prompt_template=prompt_template,
@@ -97,7 +103,12 @@ async def get_trip_planner_pipe():
 
     pipe = AgentXPipe(
         name="Trip Planner Pipe",
-        agents=[serper_agent, scraper_agent, city_selection_agent, travel_concierge_agent],
+        agents=[
+            serper_agent,
+            scraper_agent,
+            city_selection_agent,
+            travel_concierge_agent
+        ],
         memory=memory
     )
 

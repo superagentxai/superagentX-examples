@@ -6,7 +6,9 @@
 SuperAgentX - A Lightweight Modular Autonomous True Multi Agent AI Framework.
 
 ## Introduction
-This project demonstrates the use of the SuperAgentX framework to automate trip planning when you're deciding between multiple options. SuperAgentX coordinates autonomous AI agents, allowing them to work together to accomplish complex tasks efficiently.
+This project demonstrates the use of the SuperAgentX framework to automate trip planning when you're deciding between 
+multiple options. SuperAgentX coordinates autonomous AI agents, allowing them to work together to accomplish complex
+tasks efficiently.
 
 ## Pre-requisites
 - **Configure Environment:** -  Set up the environment variables for AWS Bedrock-Runtime and Serper
@@ -24,10 +26,12 @@ This project demonstrates the use of the SuperAgentX framework to automate trip 
 **Note:** Configure the AWS Bedrock credentials for LLM Configuration.
 ## Run the Script
 
-Run `python trip_planner/iopipe.py` and enter your idea when prompted. The script will use the SuperAgentX framework to process your input and generate a landing page.
+Run `python trip_planner/iopipe.py` and enter your idea when prompted. The script will use the SuperAgentX framework
+to process your input and generate a landing page.
 
-# Input
-Users interact with this system via a script `(trip_planner/iopipe.py)` that processes input data using AWS's Bedrock (LLM) via an IO Console interface.
+# Input - CLI Interface
+Users interact with this system via a script `(trip_planner/iopipe.py)` that processes input data using AWS's Bedrock
+(LLM) via an IO Console interface.
 
 [//]: # (<img src="https://github.com/superagentxai/superagentx/blob/images/docs/images/trip_planner_image/Screenshot%20from%202024-11-12%2022-36-29.png?raw=true">)
 
@@ -46,6 +50,18 @@ WARNING:chromadb.segment.impl.vector.local_persistent_hnsw:Number of requested r
 [LOG] 🚀 Crawl4AI 0.3.731
 [LOG] 🌤️  Warming up the AsyncWebCrawler
 [LOG] 🌞 AsyncWebCrawler is ready to crawl
+```
+
+# REST API Server
+```console
+# Development mode
+fastapi dev restpipe.py
+
+# Production mode
+fastapi run restpipe.py
+
+# Example
+
 ```
 
 # Locations
@@ -98,7 +114,8 @@ WARNING:chromadb.segment.impl.vector.local_persistent_hnsw:Number of requested r
 
 # Result
 
-Upon executing the script, the SuperAgentX framework generates a detailed itinerary for a 5-day California coast trip, covering notable locations:
+Upon executing the script, the SuperAgentX framework generates a detailed itinerary for a 5-day California coast trip,
+covering notable locations:
 ```json
 {
   "trip_details": {
@@ -172,4 +189,7 @@ Upon executing the script, the SuperAgentX framework generates a detailed itiner
 
 # Conclusion
 
-This project showcases SuperAgentX’s capabilities in coordinating AI agents for trip planning. The generated itinerary provides an efficient, organized approach to exploring California’s highlights, although users should budget for high travel costs. The modular, automated nature of SuperAgentX makes it a versatile framework for similar applications where multiple agent-based decisions are beneficial.
+This project showcases SuperAgentX’s capabilities in coordinating AI agents for trip planning. The generated itinerary
+provides an efficient, organized approach to exploring California’s highlights, although users should budget for high
+travel costs. The modular, automated nature of SuperAgentX makes it a versatile framework for similar applications
+where multiple agent-based decisions are beneficial.
