@@ -52,45 +52,45 @@ WARNING:chromadb.segment.impl.vector.local_persistent_hnsw:Number of requested r
 <table>
   <tr>
     <td>
-        <img src="https://github.com/superagentxai/superagentx/blob/images/docs/images/trip_planner_image/mission-Santa-Barbara.jpg?raw=true"  width=550 height=250>
+        <img src="https://github.com/superagentxai/superagentx/blob/images/docs/images/trip_planner_image/mission-Santa-Barbara.jpg?raw=true"  width=550 height=200>
         <p>Mission Santa Barbara</p>
     </td>
     <td>
-        <img src="https://github.com/superagentxai/superagentx/blob/images/docs/images/trip_planner_image/660332e04a42ee42011d9dbf_91.jpg?raw=true" width=550 height=250>
+        <img src="https://github.com/superagentxai/superagentx/blob/images/docs/images/trip_planner_image/660332e04a42ee42011d9dbf_91.jpg?raw=true" width=550 height=200>
         <p>Hollywood Walk of Fame</p>
     </td>
     <td>
-        <img src="https://github.com/superagentxai/superagentx/blob/images/docs/images/trip_planner_image/239684-Morro-Rock-San-Luis.jpg?raw=true" width=550 height=250>
+        <img src="https://github.com/superagentxai/superagentx/blob/images/docs/images/trip_planner_image/239684-Morro-Rock-San-Luis.jpg?raw=true" width=550 height=200>
         <p>Morro Rock</p>
     </td>
     <td>
-        <img src="https://github.com/superagentxai/superagentx/blob/images/docs/images/trip_planner_image/aa972fdea46cfb31e340fa91dccf6836.jpg?raw=true" width=550 height=250>
+        <img src="https://github.com/superagentxai/superagentx/blob/images/docs/images/trip_planner_image/aa972fdea46cfb31e340fa91dccf6836.jpg?raw=true" width=550 height=200>
         <p>McWay Falls</p>
     </td>
     <td>
-        <img src="https://github.com/superagentxai/superagentx/blob/images/docs/images/trip_planner_image/Bixby-Bridge.jpg?raw=true" width=550 height=250>
+        <img src="https://github.com/superagentxai/superagentx/blob/images/docs/images/trip_planner_image/Bixby-Bridge.jpg?raw=true" width=550 height=200>
         <p>Bixby Creek Bridge</p>
     </td>
   </tr>
   <tr>
     <td>
-        <img src="https://github.com/superagentxai/superagentx/blob/images/docs/images/trip_planner_image/istockphoto-493630062-612x612.jpg?raw=true" width=550 height=250>
+        <img src="https://github.com/superagentxai/superagentx/blob/images/docs/images/trip_planner_image/istockphoto-493630062-612x612.jpg?raw=true" width=550 height=200>
         <p>Pigeon Point Lighthouse</p>
     </td>
     <td>
-        <img src="https://github.com/superagentxai/superagentx/blob/images/docs/images/trip_planner_image/monterey-aquarium-17.jpg?raw=true" width=550 height=250>
+        <img src="https://github.com/superagentxai/superagentx/blob/images/docs/images/trip_planner_image/monterey-aquarium-17.jpg?raw=true" width=550 height=200>
         <p>Monterey Bay Aquarium</p>
     </td>
     <td>
-        <img src="https://github.com/superagentxai/superagentx/blob/images/docs/images/trip_planner_image/shutterstock_78199996__5184x3456____v1222x580__.jpg?raw=true" width=550 height=250>
+        <img src="https://github.com/superagentxai/superagentx/blob/images/docs/images/trip_planner_image/shutterstock_78199996__5184x3456____v1222x580__.jpg?raw=true" width=550 height=200>
         <p>Alcatraz Island</p>
     </td>
     <td>
-        <img src="https://github.com/superagentxai/superagentx/blob/images/docs/images/trip_planner_image/Palace_of_Fine_Arts_(16794p).jpg?raw=true" width=550 height=250>
+        <img src="https://github.com/superagentxai/superagentx/blob/images/docs/images/trip_planner_image/Palace_of_Fine_Arts_(16794p).jpg?raw=true" width=550 height=200>
         <p>Palace of Fine Arts</p>
     </td>
     <td>
-        <img src="https://github.com/superagentxai/superagentx/blob/images/docs/images/trip_planner_image/premium_photo-1661963640331-c867191b4641.jpeg?raw=true" width=550 height=250>
+        <img src="https://github.com/superagentxai/superagentx/blob/images/docs/images/trip_planner_image/premium_photo-1661963640331-c867191b4641.jpeg?raw=true" width=550 height=200>
         <p>Golden Gate Bridge</p>
     </td>
   </tr>
