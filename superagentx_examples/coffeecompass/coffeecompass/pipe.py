@@ -22,10 +22,12 @@ async def get_coffeecompass_pipe() -> AgentXPipe:
     coffee_compass_handler = CoffeeCompassHandler()
 
     # Set System Prompt to provide instructions for the LLM
-    system_prompt = """You're provided with a tool that can get the coordinates for a specific city 
-                'get_lat_long' and a tool that can get best cafe in that city, but requires the coordinates 'find_coffee_shops'; only use the tool if required. 
-                You can call the tool multiple times in the same response. Don't make reference to the tools in your final answer. 
-                Generate ONLY the expected JSON"""
+    system_prompt = """
+    You're provided with a tool that can get the coordinates for a specific city 'get_lat_long' and a tool that can
+     get best cafe in that city, but requires the coordinates 'find_coffee_shops'; only use the tool if required. 
+    You can call the tool multiple times in the same response. Don't make reference to the tools in your final answer.
+    Generate ONLY the expected JSON
+    """
 
 
     # Prompt Template
