@@ -52,16 +52,43 @@ WARNING:chromadb.segment.impl.vector.local_persistent_hnsw:Number of requested r
 [LOG] 🌞 AsyncWebCrawler is ready to crawl
 ```
 
-# REST API Server
+### REST API Server
 ```console
 # Development mode
-fastapi dev restpipe.py
+fastapi dev trip_planner/restpipe.py
 
 # Production mode
-fastapi run restpipe.py
+fastapi run trip_planner/restpipe.py
 
+```
+
+### Websocket Server
+```console
+python trip_planner/wspipe.py
+```
+
+## Example
+### REST API
+```python
 # Example
+import requests
 
+response = requests.get(
+    'http://localhost:8000/search',
+    params={'query': 'Plan trip for california with 5 days'},
+    headers={'api-token': 'your-auth-token'}
+)
+```
+### WebSocket Client
+
+```python
+import websockets
+
+async with websockets.connect(
+    'ws://localhost:8765?token=your-auth-token'
+) as websocket:
+    await websocket.send('Plan trip for california with 5 days')
+    response = await websocket.recv()
 ```
 
 # Locations
