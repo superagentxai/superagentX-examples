@@ -70,7 +70,9 @@ async def get_trip_planner_pipe():
     )
     scraper_agent = Agent(
         name="Crawler Agent",
-        role=f'You are the travel data extractor. Extract the city, locations, hotels, weather, seasons, months and prices with full information based on the user question and context. And generate the below output format \n\n{output_prompt}',
+        role=f'You are the travel data extractor. Extract the city, locations, hotels, weather, seasons, months and '
+             f'prices with full information based on the user question and context. And generate the below output '
+             f'format \n\n{output_prompt}',
         goal='Extract the city, locations, hotels, weather, seasons, months and prices',
         llm=llm_client,
         prompt_template=prompt_template,
