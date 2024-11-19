@@ -21,7 +21,7 @@ This project demonstrates the use of the SuperAgentX framework to automate trip 
     - `poetry install`
     - `playwright install`
 
-**Note:**Configure the AWS Bedrock credentials for LLM Configuration.
+**Note:** Configure the AWS Bedrock credentials for LLM Configuration.
 ## Run the Script
 
 Run `python trip_planner/iopipe.py` and enter your idea when prompted. The script will use the SuperAgentX framework to process your input and generate a landing page.
