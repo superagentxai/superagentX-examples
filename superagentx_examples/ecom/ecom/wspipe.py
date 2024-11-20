@@ -6,8 +6,8 @@ import urllib.parse
 from rich import print as rprint
 from superagentx.pipeimpl.wspipe import WSPipe  # https://websockets.readthedocs.io/en/stable/
 
-from trip_planner.config import AUTH_TOKEN
-from trip_planner.pipe import get_trip_planner_pipe
+from ecom.config import AUTH_TOKEN
+from ecom.pipe import get_ecom_pipe
 
 
 async def query_param_auth(connection, request):
@@ -25,11 +25,11 @@ async def query_param_auth(connection, request):
 
 async def main():
     """
-    Launches the trip_planner pipeline websocket server for processing requests and handling data.
+    Launches the ecom pipeline websocket server for processing requests and handling data.
     """
-    pipe = await get_trip_planner_pipe()
+    pipe = await get_ecom_pipe()
     ws_pipe = WSPipe(
-        search_name='SuperAgentX trip_planner Websocket Server',
+        search_name='SuperAgentX ecom Websocket Server',
         agentx_pipe=pipe
     )
     await ws_pipe.start(process_request=query_param_auth)

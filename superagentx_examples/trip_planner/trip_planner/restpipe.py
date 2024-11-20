@@ -1,9 +1,11 @@
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI
+from fastapi import Depends, FastAPI, HTTPException  # https://fastapi.tiangolo.com/
+from fastapi.security import APIKeyHeader
 from superagentx.agentxpipe import AgentXPipe
 from superagentx.result import GoalResult
 
+from trip_planner.config import AUTH_TOKEN
 from trip_planner.pipe import get_trip_planner_pipe
 
 pipes = {}
@@ -17,23 +19,30 @@ async def lifespan(app: FastAPI):
 
 
 ecom_app = FastAPI(
-    title='Trip Planner',
+    title='trip_planner Search',
     lifespan=lifespan
 )
 
 
-@ecom_app.get('/search')
+async def verify_api_token(
+    api_token: str = Depends(APIKeyHeader(name='api-token', auto_error=False))
+):
+    if api_token != AUTH_TOKEN:
+        raise HTTPException(status_code=401, detail='Invalid API Token!')
+
+
+@ecom_app.get('/search', dependencies=[Depends(verify_api_token)])
 async def search(query: str) -> list[GoalResult]:
     trip_planner_pipe: AgentXPipe = pipes.get('trip_planner_pipe')
     return await trip_planner_pipe.flow(query_instruction=query)
 
 
 """
-# To Run This using, install `pip install 'fastapi[standard]'`
+# To Run this, please install `pip install 'fastapi[standard]'`
 
 # Development Mode
-fastapi dev superagentx_examples/trip_planner/restpipe.py
+fastapi dev superagentx_examples/ecom/ecom_fastapi.py
 
 # Server Mode
-fastapi run superagentx_examples/trip_planner/restpipe.py
+fastapi run superagentx_examples/ecom/ecom_fastapi.py
 """
