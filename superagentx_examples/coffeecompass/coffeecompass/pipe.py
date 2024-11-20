@@ -39,10 +39,10 @@ async def get_coffeecompass_pipe() -> AgentXPipe:
         prompt_template=coffee_shop_system_prompt
     )
 
-    # Agent - Get latitude & longitude from Weather Handler using engine.
+    # Agent - Get latitude & longitude from Coffee Compass Handler using engine.
     lat_and_long_agent = Agent(
         name="Latitude Longitude Agent",
-        role="You're an map expert to find latitude & longitude for the given place",
+        role="You're a map expert to find latitude & longitude for the given place",
         goal="Get the latitude and longitude for the given place",
         llm=llm_client,
         max_retry=2,  # Default Max Retry is 5
@@ -50,6 +50,7 @@ async def get_coffeecompass_pipe() -> AgentXPipe:
         engines=[coffee_compass_engine],
     )
 
+    # Agent - To find Coffee shops nearby with an input of latitude & longitude.
     coffee_compass_agent = Agent(
         name='Cafe Finder Agent',
         goal="Find the good cafes with features list",
@@ -62,7 +63,7 @@ async def get_coffeecompass_pipe() -> AgentXPipe:
 
     # Create Pipe - Interface
 
-    # Pipe Interface to send it to public accessible interface (Cli Console / WebSocket / Restful API)
+    # Pipe Interface to send it to publicly accessible interface (Cli Console / WebSocket / Restful API)
     pipe = AgentXPipe(
         agents=[lat_and_long_agent, coffee_compass_agent],
         memory=memory
