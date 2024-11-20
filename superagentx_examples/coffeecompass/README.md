@@ -50,9 +50,54 @@ python iopipe.py
 ## Cafes 
 ![Cafe Search Results](screens.png)
 
-## Screenshot 
-![CoffeeCompass Interface](output_json.png)
-
+## Output
+```json
+[
+  {
+    "name": "Crema Coffee Roasting Company",
+    "address": "San Jose, CA",
+    "features": [
+      "coffee_roasting"
+    ]
+  },
+  {
+    "name": "Nirvana Soul",
+    "address": "315 South 1st Street, San Jose, CA 95113",
+    "features": [
+      "internet_access",
+      "outdoor_seating",
+      "opening_hours"
+    ]
+  },
+  {
+    "name": "Philz Coffee",
+    "address": "118 Paseo De San Antonio, San Jose, CA 95112",
+    "features": [
+      "takeaway",
+      "coffee_shop",
+      "safety_mask"
+    ]
+  },
+  {
+    "name": "Voyager Craft Coffee",
+    "address": "87 North San Pedro Street, San Jose, CA 95110",
+    "features": [
+      "internet_access",
+      "coffee_shop"
+    ]
+  },
+  {
+    "name": "Academic Coffee",
+    "address": "499 South 2nd Street, San Jose, CA 95113",
+    "features": [
+      "indoor_seating",
+      "outdoor_patio",
+      "takeaway",
+      "contactless_payment"
+    ]
+  }
+]
+```
 
 ### REST API Server
 ```bash
