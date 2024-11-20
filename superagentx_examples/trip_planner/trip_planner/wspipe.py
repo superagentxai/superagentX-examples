@@ -3,7 +3,7 @@ import asyncio
 from rich import print as rprint
 from superagentx.pipeimpl.wspipe import WSPipe
 
-from superagentx_examples.trip_planner.pipe import get_trip_planner_pipe
+from trip_planner.pipe import get_trip_planner_pipe
 
 
 async def main():

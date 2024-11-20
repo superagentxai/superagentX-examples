@@ -26,17 +26,17 @@ tasks efficiently.
 **Note:** Configure the AWS Bedrock credentials for LLM Configuration.
 ## Run the Script
 
-Run `python trip_planner/iopipe.py` and enter your idea when prompted. The script will use the SuperAgentX framework
+Run `python iopipe.py` and enter your idea when prompted. The script will use the SuperAgentX framework
 to process your input and generate a landing page.
 
 # Input - CLI Interface
-Users interact with this system via a script `(trip_planner/iopipe.py)` that processes input data using AWS's Bedrock
+Users interact with this system via a script `(iopipe.py)` that processes input data using AWS's Bedrock
 (LLM) via an IO Console interface.
 
 [//]: # (<img src="https://github.com/superagentxai/superagentx/blob/images/docs/images/trip_planner_image/Screenshot%20from%202024-11-12%2022-36-29.png?raw=true">)
 
 ```log
-(venv) ➜  trip_planner python3.12 trip_planner/iopipe.py
+(venv) ➜  trip_planner python3.12 iopipe.py
 Warning: Synchronous WebCrawler is not available. Install crawl4ai[sync] for synchronous support. However, please note that the synchronous version will be deprecated soon.
 ─────────────────────────────────────────────────────────────────────── SuperAgentX trip_planner ───────────────────────────────────────────────────────────────────────
 
@@ -52,44 +52,6 @@ WARNING:chromadb.segment.impl.vector.local_persistent_hnsw:Number of requested r
 [LOG] 🌞 AsyncWebCrawler is ready to crawl
 ```
 
-### REST API Server
-```console
-# Development mode
-fastapi dev trip_planner/restpipe.py
-
-# Production mode
-fastapi run trip_planner/restpipe.py
-
-```
-
-### Websocket Server
-```console
-python trip_planner/wspipe.py
-```
-
-## Example
-### REST API
-```python
-# Example
-import requests
-
-response = requests.get(
-    'http://localhost:8000/search',
-    params={'query': 'Plan trip for california with 5 days'},
-    headers={'api-token': 'your-auth-token'}
-)
-```
-### WebSocket Client
-
-```python
-import websockets
-
-async with websockets.connect(
-    'ws://localhost:8765?token=your-auth-token'
-) as websocket:
-    await websocket.send('Plan trip for california with 5 days')
-    response = await websocket.recv()
-```
 
 # Locations
 <table>
@@ -212,6 +174,45 @@ covering notable locations:
   "vehicle_recommendation": "Mid-size SUV or compact convertible",
   "total_driving_distance": "450-500 miles"
 }
+```
+
+### REST API Server
+```console
+# Development mode
+fastapi dev trip_planner/restpipe.py
+
+# Production mode
+fastapi run trip_planner/restpipe.py
+
+```
+
+### Websocket Server
+```console
+python trip_planner/wspipe.py
+```
+
+## Example
+### REST API
+```python
+# Example
+import requests
+
+response = requests.get(
+    'http://localhost:8000/search',
+    params={'query': 'Plan trip for california with 5 days'},
+    headers={'api-token': 'your-auth-token'}
+)
+```
+### WebSocket Client
+
+```python
+import websockets
+
+async with websockets.connect(
+    'ws://localhost:8765?token=your-auth-token'
+) as websocket:
+    await websocket.send('Plan trip for california with 5 days')
+    response = await websocket.recv()
 ```
 
 # Conclusion

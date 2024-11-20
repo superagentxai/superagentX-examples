@@ -4,7 +4,7 @@ from fastapi import FastAPI
 from superagentx.agentxpipe import AgentXPipe
 from superagentx.result import GoalResult
 
-from superagentx_examples.trip_planner.pipe import get_trip_planner_pipe
+from trip_planner.pipe import get_trip_planner_pipe
 
 pipes = {}
 
@@ -32,8 +32,8 @@ async def search(query: str) -> list[GoalResult]:
 # To Run This using, install `pip install 'fastapi[standard]'`
 
 # Development Mode
-fastapi dev superagentx_examples/trip_planner/trip_planner_fastapi.py
+fastapi dev superagentx_examples/trip_planner/restpipe.py
 
 # Server Mode
-fastapi run superagentx_examples/trip_planner/trip_planner_fastapi.py
+fastapi run superagentx_examples/trip_planner/restpipe.py
 """
