@@ -54,23 +54,11 @@ python iopipe.py
 ```json
 [
   {
-    "name": "Voyager Craft Coffee",
-    "address": "87 North San Pedro Street, San Jose, CA 95110",
+    "name": "Crema Coffee Roasting Company",
+    "address": "San Jose, CA",
     "features": [
-      "internet_access",
-      "coffee_shop"
-    ],
-    "distance_from_milpitas": "Approximately 10 miles"
-  },
-  {
-    "name": "Philz Coffee",
-    "address": "118 Paseo De San Antonio, San Jose, CA 95112",
-    "features": [
-      "takeaway",
-      "coffee_shop",
-      "safety_mask"
-    ],
-    "distance_from_milpitas": "Approximately 10 miles"
+      "coffee_roasting"
+    ]
   },
   {
     "name": "Nirvana Soul",
@@ -79,8 +67,24 @@ python iopipe.py
       "internet_access",
       "outdoor_seating",
       "opening_hours"
-    ],
-    "distance_from_milpitas": "Approximately 11 miles"
+    ]
+  },
+  {
+    "name": "Philz Coffee",
+    "address": "118 Paseo De San Antonio, San Jose, CA 95112",
+    "features": [
+      "takeaway",
+      "coffee_shop",
+      "safety_mask"
+    ]
+  },
+  {
+    "name": "Voyager Craft Coffee",
+    "address": "87 North San Pedro Street, San Jose, CA 95110",
+    "features": [
+      "internet_access",
+      "coffee_shop"
+    ]
   },
   {
     "name": "Academic Coffee",
@@ -90,16 +94,7 @@ python iopipe.py
       "outdoor_patio",
       "takeaway",
       "contactless_payment"
-    ],
-    "distance_from_milpitas": "Approximately 11 miles"
-  },
-  {
-    "name": "Crema Coffee Roasting Company",
-    "address": "San Jose, CA",
-    "features": [
-      "coffee_roasting"
-    ],
-    "distance_from_milpitas": "Approximately 10 miles"
+    ]
   }
 ]
 ```
