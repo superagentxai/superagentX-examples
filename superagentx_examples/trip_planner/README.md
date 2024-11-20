@@ -36,7 +36,7 @@ Users interact with this system via a script `(iopipe.py)` that processes input 
 [//]: # (<img src="https://github.com/superagentxai/superagentx/blob/images/docs/images/trip_planner_image/Screenshot%20from%202024-11-12%2022-36-29.png?raw=true">)
 
 ```log
-(venv) ➜  trip_planner python3.12 iopipe.py
+(venv) ➜  trip_planner python3 iopipe.py
 Warning: Synchronous WebCrawler is not available. Install crawl4ai[sync] for synchronous support. However, please note that the synchronous version will be deprecated soon.
 ─────────────────────────────────────────────────────────────────────── SuperAgentX trip_planner ───────────────────────────────────────────────────────────────────────
 
