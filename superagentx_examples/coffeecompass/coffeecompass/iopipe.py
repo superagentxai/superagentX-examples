@@ -1,21 +1,22 @@
+
 import asyncio
 
 from rich import print as rprint
 from superagentx.pipeimpl.iopipe import IOPipe
 
-from superagentx_examples.ecom.pipe import get_ecom_pipe
+from coffeecompass.pipe import get_coffeecompass_pipe
 
 
 async def main():
     """
-    Launches the e-commerce pipeline console client for processing requests and handling data.
+    Launches the coffeecompass pipeline console client for processing requests and handling data.
     """
 
-    pipe = await get_ecom_pipe()
+    pipe = await get_coffeecompass_pipe()
 
     # Create IO Cli Console - Interface
     io_pipe = IOPipe(
-        search_name='SuperAgentX Ecom',
+        search_name='SuperAgentX coffeecompass',
         agentx_pipe=pipe,
         read_prompt=f"\n[bold green]Enter your search here"
     )

@@ -7,13 +7,13 @@ from superagentx.utils.helper import sync_to_async
 from websockets.asyncio.client import connect
 
 
-async def ecom_pipe_cli():
+async def trip_planner_pipe_cli():
     """
-    Launches the e-commerce pipeline websocket client for processing requests and handling data.
+    Launches the trip planner pipeline websocket client for processing requests and handling data.
     """
 
     uri = "ws://localhost:8765"
-    rprint(f'[bold blue]{10*"-"}Superagentx Ecom Websocket Cli{10*"-"}')
+    rprint(f'[bold blue]{10*"-"}Superagentx Trip Planner Websocket Cli{10*"-"}')
 
     async with connect(uri) as websocket:
         while True:
@@ -24,4 +24,4 @@ async def ecom_pipe_cli():
 
 
 if __name__ == "__main__":
-    asyncio.run(ecom_pipe_cli())
+    asyncio.run(trip_planner_pipe_cli())
