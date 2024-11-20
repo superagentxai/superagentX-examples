@@ -8,14 +8,14 @@ from trip_planner.pipe import get_trip_planner_pipe
 
 async def main():
     """
-    Launches the trip planner pipeline console client for processing requests and handling data.
+    Launches the trip_planner pipeline console client for processing requests and handling data.
     """
 
     pipe = await get_trip_planner_pipe()
 
     # Create IO Cli Console - Interface
     io_pipe = IOPipe(
-        search_name='SuperAgentX Trip Planner',
+        search_name='SuperAgentX trip_planner',
         agentx_pipe=pipe,
         read_prompt=f"\n[bold green]Enter your search here"
     )

@@ -1,0 +1,2 @@
+
+AUTH_TOKEN = 'f940de7e66f842b6a04822c976f7ade9'
