@@ -1,2 +1,2 @@
 
-AUTH_TOKEN = '22b7f45e923f406daa6a5a3359188031'
+AUTH_TOKEN = ''  # Should be updated while running the app
