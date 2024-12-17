@@ -1,0 +1,28 @@
+
+# https://python-poetry.org/docs/
+# https://packaging.python.org/en/latest/flow/#the-configuration-file
+
+[tool.poetry]
+name = "doctor-appointment"
+version = "0.0.1"
+description = "A Lightweight Modular Autonomous True Multi Agent AI Framework."
+authors = [
+    "Example Author <author@example.com>",
+]
+maintainers = [
+    "Example Maintainer <maintainer@example.com>",
+]
+readme = "README.md"
+keywords = ["doctor-appointment", "AGI", "Agentic AI", "ASI", "superagentx", "agent", "LLM"]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<=3.13"
+rich = "^13.9.2"
+websockets = "^13.1"
+superagentx = "^0.1.13"
+superagentx-handlers = "^0.1.5"
+fastapi = {extras = ["standard"], version = "^0.115.4"}
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
