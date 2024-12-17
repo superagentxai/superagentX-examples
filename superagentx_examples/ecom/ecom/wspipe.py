@@ -30,9 +30,10 @@ async def main():
     pipe = await get_ecom_pipe()
     ws_pipe = WSPipe(
         search_name='SuperAgentX ecom Websocket Server',
-        agentx_pipe=pipe
+        agentx_pipe=pipe,
+        process_request=query_param_auth
     )
-    await ws_pipe.start(process_request=query_param_auth)
+    await ws_pipe.start()
 
 
 if __name__ =='__main__':
