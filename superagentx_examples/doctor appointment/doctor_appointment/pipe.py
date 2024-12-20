@@ -29,7 +29,7 @@ async def get_doctor_appointment_pipe() -> AgentXPipe:
     )
 
     # Handler (Tools)
-    database = "doctor_appointment/data/hospital_data.db"
+    database = "doctor_appointment/data/hospital_data.sqlite3"
     sqlite_handler = SQLHandler(
         database_type="sqlite",
         database=database
@@ -69,7 +69,7 @@ async def get_doctor_appointment_pipe() -> AgentXPipe:
     """
 
     appointment_gen_prompt = """
-    You are a SQLite and SQL expert. Fetch the following details from the hospital_data.db
+    You are a SQLite and SQL expert. Fetch the following details from the hospital_data.sqlite3
     You are a professional appointment letter writer.
 
     **IMPORTANT**:
@@ -161,6 +161,6 @@ async def get_doctor_appointment_pipe() -> AgentXPipe:
     # Pipe Interface to send it to public accessible interface (Cli Console / WebSocket / Restful API)
     pipe = AgentXPipe(
         agents=[doctor_find_agent, letter_gen_agent],  # letter_gen_agent
-        # memory=memory
+        memory=memory
     )
     return pipe
