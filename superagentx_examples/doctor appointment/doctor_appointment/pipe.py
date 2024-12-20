@@ -145,6 +145,6 @@ async def get_doctor_appointment_pipe() -> AgentXPipe:
     # Pipe Interface to send it to public accessible interface (Cli Console / WebSocket / Restful API)
     pipe = AgentXPipe(
         agents=[doctor_find_agent, letter_gen_agent],  # letter_gen_agent
-        # memory=memory
+        memory=memory
     )
     return pipe
