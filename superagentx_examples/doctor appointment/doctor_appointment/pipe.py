@@ -14,49 +14,59 @@ from superagentx_handlers.sql import SQLHandler
 async def get_doctor_appointment_pipe() -> AgentXPipe:
     # LLM Configuration
     llm_config = {
-        "model": 'anthropic.claude-3-5-haiku-20241022-v1:0', "llm_type": 'bedrock'
+        "model": 'anthropic.claude-3-5-haiku-20241022-v1:0',
+        "llm_type": 'bedrock'
     }
 
     llm_client = LLMClient(llm_config=llm_config)
 
     # Enable Memory
-    memory = Memory(memory_config={"llm_client": llm_client, "db_path": "doctor_appointment/data/memory.db"})
+    memory = Memory(
+        memory_config={
+            "llm_client": llm_client,
+            "db_path": "doctor_appointment/data/memory.db"
+        }
+    )
 
     # Handler (Tools)
     database = "doctor_appointment/data/hospital_data.sqlite3"
-    sqlite_handler = SQLHandler(database_type="sqlite", database=database)
+    sqlite_handler = SQLHandler(
+        database_type="sqlite",
+        database=database
+    )
 
     # Set System Prompt to provide instructions for the LLM
     doctor_find_prompt = """
-                    You are an expert in SQL and SQLite. Your task is to analyze and fetch the data from the hospital database.
+    You are an expert in SQL and SQLite. Your task is to analyze and fetch the data from the hospital database.
 
-                    The schema of the database is as follows:
+    The schema of the database is as follows:
 
-                    1. Table: doctor_availability
-                       - Id (TEXT, PRIMARY KEY)
-                       - name (TEXT)
-                       - available_days (TEXT)
-                       - available_time_slots (TEXT)
-                       - specialization (TEXT)
+    1. Table: doctor_availability
+       - Id (TEXT, PRIMARY KEY)
+       - name (TEXT)
+       - available_days (TEXT)
+       - available_time_slots (TEXT)
+       - specialization (TEXT)
 
-                    Specializations are : Orthopedic Specialist, General Practitioner, Cardiologist, Internal Medicine Specialist, Allergist.
+    Specializations are : 
+    Orthopedic Specialist, General Practitioner, Cardiologist, Internal Medicine Specialist, Allergist.
 
-                    Sample format:
+    Sample format:
 
-                    Id: <doctor_id here>
-                    name: <doctor_name here>
-                    available_days: <available_days here>
-                    available_time_slots: <available_time_slots here>
-                    specialization: <specialization here>
+    Id: <doctor_id here>
+    name: <doctor_name here>
+    available_days: <available_days here>
+    available_time_slots: <available_time_slots here>
+    specialization: <specialization here>
 
-                    Your task is to:
-                    1. Fetch the schedule of doctors based on their specialization from the Table.
-                    2. Ensure that the query is optimized and uses the schema correctly.
-                    3. Handle scenarios where no appointments exist for a specific doctor or specialization.
+    Your task is to:
+    1. Fetch the schedule of doctors based on their specialization from the Table.
+    2. Ensure that the query is optimized and uses the schema correctly.
+    3. Handle scenarios where no appointments exist for a specific doctor or specialization.
 
-                    Do not make assumptions about additional columns or tables unless explicitly stated.
-                     If further clarification is needed, include comments in the query.
-                    """
+    Do not make assumptions about additional columns or tables unless explicitly stated.
+     If further clarification is needed, include comments in the query.
+    """
 
     appointment_gen_prompt = """
     You are a SQLite and SQL expert. Fetch the following details from the hospital_data.sqlite3
@@ -66,7 +76,8 @@ async def get_doctor_appointment_pipe() -> AgentXPipe:
     You should only generate appointment letter if user asks you to generate.
     Eg Input : "Make an appointment letter for the doctor"
 
-    Your task is to generate a concise and professional appointment letter for a patient based on the provided context. The letter must include the following details:
+    Your task is to generate a concise and professional appointment letter for a patient based on the provided context.
+     The letter must include the following details:
     - Doctor's name
     - Doctor's ID
     - Patient ID
@@ -77,14 +88,19 @@ async def get_doctor_appointment_pipe() -> AgentXPipe:
 
     **IMPORTANT INSTRUCTIONS**:
     1. The letter should be concise, limited to **100-150 words**.
-    2. Write the output as a **single continuous block of text** without unnecessary newlines (`\n`) or special characters.
+    2. Write the output as a **single continuous block of text** without unnecessary newlines (`\n`) or
+     special characters.
     3. Avoid structured formats like JSON, YAML, or bullet points.
     4. Ensure the letter is polite, professional, and easy to understand.
     5. Do not include headings, subheadings, or lists unless explicitly required.
 
     **Sample Format**:
     ---
-    Dear Patient, Your orthopedic consultation has been confirmed. Below are the details: Doctor: Dr.Muller (Doctor ID: D90143). Patient ID: PI2385. Token Number: 1123. Date: Monday. Time: 11:00 AM. Please arrive 15 minutes early for registration and bring any relevant medical records. Should you need to reschedule, contact us at least 24 hours in advance. Thank you for choosing our healthcare services. Warm regards, [Your Organization Name]
+    Dear Patient, Your orthopedic consultation has been confirmed. 
+    Below are the details: Doctor: Dr.Muller (Doctor ID: D90143). Patient ID: PI2385. Token Number: 1123. Date: Monday. 
+    Time: 11:00 AM. Please arrive 15 minutes early for registration and bring any relevant medical records. 
+    Should you need to reschedule, contact us at least 24 hours in advance. 
+    Thank you for choosing our healthcare services. Warm regards, [Your Organization Name]
     ---
 
     DO NOT include additional instructions unless explicitly required.
