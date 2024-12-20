@@ -23,7 +23,7 @@ async def get_doctor_appointment_pipe() -> AgentXPipe:
     memory = Memory(memory_config={"llm_client": llm_client, "db_path": "doctor_appointment/data/memory.db"})
 
     # Handler (Tools)
-    database = "doctor_appointment/data/hospital_data.db"
+    database = "doctor_appointment/data/hospital_data.sqlite3"
     sqlite_handler = SQLHandler(database_type="sqlite", database=database)
 
     # Set System Prompt to provide instructions for the LLM
@@ -59,7 +59,7 @@ async def get_doctor_appointment_pipe() -> AgentXPipe:
                     """
 
     appointment_gen_prompt = """
-    You are a SQLite and SQL expert. Fetch the following details from the hospital_data.db
+    You are a SQLite and SQL expert. Fetch the following details from the hospital_data.sqlite3
     You are a professional appointment letter writer.
 
     **IMPORTANT**:
