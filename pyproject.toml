@@ -21,6 +21,7 @@ websockets = "^13.1"
 superagentx = "^0.1.12"
 superagentx-handlers = "^0.1.5"
 fastapi = {extras = ["standard"], version = "^0.115.4"}
+amazon-transcribe = "^0.6.2"
 
 [build-system]
 requires = ["poetry-core"]

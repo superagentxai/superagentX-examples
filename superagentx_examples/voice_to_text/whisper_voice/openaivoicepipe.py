@@ -16,12 +16,14 @@ RECORD_DURATION = 10
 
 
 class WhisperPipe:
-    def __init__(self,
-                 *,
-                 search_name: str,
-                 agentx_pipe: AgentXPipe,
-                 read_prompt: str | None = None,
-                 write_prompt: str | None = None):
+    def __init__(
+            self,
+            *,
+            search_name: str,
+            agentx_pipe: AgentXPipe,
+            read_prompt: str | None = None,
+            write_prompt: str | None = None
+    ):
         # Load the Whisper model
         self.model = whisper.load_model("base")  # Use "tiny", "small", "medium", or "large" as needed
         self.agentx_pipe = agentx_pipe
@@ -42,7 +44,12 @@ class WhisperPipe:
                 audio_frames.append(indata.copy())
 
             # Start recording
-            with sd.InputStream(samplerate=SAMPLE_RATE, channels=CHANNELS, dtype=DTYPE, callback=audio_callback):
+            with sd.InputStream(
+                    samplerate=SAMPLE_RATE,
+                    channels=CHANNELS,
+                    dtype=DTYPE,
+                    callback=audio_callback
+            ):
                 await asyncio.sleep(RECORD_DURATION)
 
         # Combine recorded audio frames
@@ -50,7 +57,7 @@ class WhisperPipe:
 
         # Save to a temporary WAV file
         with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as temp_audio_file:
-            write(temp_audio_file.name, sample_rate, recorded_audio)
+            write(temp_audio_file.name, SAMPLE_RATE, recorded_audio)
             return temp_audio_file.name
 
     async def transcribe_audio(self, file_path):
