@@ -79,13 +79,18 @@ class AWSVoicePipe:
             print(f"No input received within {timeout} seconds, stopping the stream.")
             await self.input_stream.end_stream()
 
-    async def basic_transcribe(self):
+    async def basic_transcribe(
+            self,
+            language_code: str = 'en-US',
+            media_sample_rate_hz: int = 16000,
+            media_encoding: str = 'pcm'
+    ):
         # Main transcription function, connecting to Transcribe service and sending audio
         client = TranscribeStreamingClient(region=self.region)
         stream = await client.start_stream_transcription(
-            language_code="en-US",
-            media_sample_rate_hz=16000,
-            media_encoding="pcm"
+            language_code=language_code,
+            media_sample_rate_hz=media_sample_rate_hz,
+            media_encoding=media_encoding
         )
         self.input_stream = stream.input_stream
 
@@ -127,4 +132,3 @@ class AWSVoicePipe:
             else:
                 self._console.print("\nNo results found!\n")
         self._console.rule('[bold green]End')
-

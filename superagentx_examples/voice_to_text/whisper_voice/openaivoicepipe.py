@@ -103,4 +103,3 @@ class WhisperPipe:
 
         # Print the transcribed text
         self._console.print(f"Transcription: [bold yellow]{query}[/bold yellow]")
-
