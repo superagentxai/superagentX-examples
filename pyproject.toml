@@ -22,6 +22,9 @@ superagentx = "^0.1.12"
 superagentx-handlers = "^0.1.5"
 fastapi = {extras = ["standard"], version = "^0.115.4"}
 amazon-transcribe = "^0.6.2"
+sounddevice = "^0.5.1"
+numpy = "^2.2.2"
+scipy = "^1.15.1"
 
 [build-system]
 requires = ["poetry-core"]
