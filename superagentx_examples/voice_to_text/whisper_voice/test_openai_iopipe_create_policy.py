@@ -1,10 +1,8 @@
-
 import asyncio
 
 from rich import print as rprint
-from superagentx.pipeimpl.openaivoicepipe import WhisperPipe
 
-# from create_pipe import get_superagentx_voice_to_text_pipe
+from openaivoicepipe import WhisperPipe
 
 from superagentx_examples.voice_to_text.create_pipe import get_superagentx_voice_to_text_pipe
 
@@ -30,4 +28,3 @@ if __name__ == '__main__':
         asyncio.run(main())
     except (KeyboardInterrupt, asyncio.CancelledError):
         rprint("\nUser canceled the [bold yellow][i]pipe[/i]!")
-

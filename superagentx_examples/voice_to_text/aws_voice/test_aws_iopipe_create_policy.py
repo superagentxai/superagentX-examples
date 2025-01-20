@@ -1,9 +1,7 @@
 import asyncio
-
 from rich import print as rprint
-from superagentx.pipeimpl.awsvoicepipe import AWSVoicePipe
 
-# from create_pipe import get_superagentx_voice_to_text_pipe
+from awsvoicepipe import AWSVoicePipe
 
 from superagentx_examples.voice_to_text.create_pipe import get_superagentx_voice_to_text_pipe
 
