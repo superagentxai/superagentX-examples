@@ -2,21 +2,20 @@ import asyncio
 
 from rich import print as rprint
 
-from openaivoicepipe import WhisperPipe
-
-from superagentx_examples.voice_to_text.create_pipe import get_superagentx_voice_to_text_pipe
+from pipe import get_whisper_pipe
+from superagentx.pipeimpl.openaivoicepipe import WhisperPipe
 
 
 async def main():
     """
-    Launches the superagentx-voice-to-text pipeline console client for processing requests and handling data.
+    Launches the voice_to_text pipeline console client for processing requests and handling data.
     """
 
-    pipe = await get_superagentx_voice_to_text_pipe()
+    pipe = await get_whisper_pipe()
 
     # Create IO Cli Console - Interface
     io_pipe = WhisperPipe(
-        search_name='SuperAgentX - Voice To Text',
+        search_name='SuperAgentX voice_to_text',
         agentx_pipe=pipe,
         read_prompt=f"\n[bold green]Enter your search here"
     )
