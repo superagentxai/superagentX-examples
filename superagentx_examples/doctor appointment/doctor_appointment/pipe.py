@@ -5,7 +5,7 @@ from superagentx.llm import LLMClient
 from superagentx.memory import Memory
 from superagentx.prompt import PromptTemplate
 
-from superagentx.handler import AIHandler  # Some default handlers from SuperAgentX framework
+from superagentx.handler.ai import AIHandler  # Some default handlers from SuperAgentX framework
 
 # Import handlers
 from superagentx_handlers.sql import SQLHandler

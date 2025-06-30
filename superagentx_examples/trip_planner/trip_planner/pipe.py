@@ -1,7 +1,8 @@
 from superagentx.agent import Agent
 from superagentx.agentxpipe import AgentXPipe
 from superagentx.engine import Engine
-from superagentx.handler import SerperDevToolHandler, AIHandler
+from superagentx.handler.ai import AIHandler
+from superagentx.handler.serper_dev import SerperDevToolHandler
 from superagentx.llm import LLMClient
 from superagentx.memory import Memory
 from superagentx.prompt import PromptTemplate
